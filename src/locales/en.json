@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "name": "Mohammadreza Haghshenas",
+    "resume": "- Resume",
+    "welcome": "Welcome",
+    "about": "About Me",
+    "skills": "Skills",
+    "projects": "Projects",
+    "packages": "Packages",
+    "education": "Education",
+    "employment": "Employment History",
+    "social": "Socials"
+  },
+  "about": {
+    "aboutTitle": "About Me",
+    "about": "I am Mohammadreza Haghshenas (Mohammadrezahq), I was born in Tehran/Iran on 2002. I enjoy working on a web app especially when it's written in PHP and Laravel. I started web developing in 2014 with HTML/CSS & PHP. In 2016 I started learning PHP MVC, WordPress development concurrently with Laravel framework development. Also I worked with Web frameworks of other languages like NestJs and Django-rest-framework (just a little). Because of working with pure PHP and WordPress, I work on both front and back (front with HTML 5/CSS 3/SCSS/jQuery), And as a full-stack Web developer, I can work with Vue js framework and a little React js. I am interested in DevOps consepts like CI/CD, Linux (LPIC), Virtualization, Docker, Kubernetes and more. At the moment I am trying to learn GoLang as my new adventure.",
+    "languagesTitle": "Languages",
+    "persian": "Persian",
+    "english": "English",
+    "hobbiesTitle": "Hobbies",
+    "learning": "Learning new technologies",
+    "gaming": "Gaming: Most of the time `CS GO‍‍‍` (unfortunately)",
+    "reading": "Reading political, psychology and sociology books",
+    "linux": "Breaking my dear linux kernel",
+    "socialTitle": "Me on Social Media",
+    "github": "Github",
+    "linkedin": "Linkedin",
+    "packagist": "Packagist",
+    "npm": "Npmjs"
+  },
+  "skills": {
+    "skillsTitle": "Skills",
+    "pl": "Programming Languages",
+    "f": "Frameworks",
+    "d": "Databases",
+    "wt": "Web Tools",
+    "t": "Tools",
+    "o": "Other",
+    "til": "Things I am learning",
+    "fact": "Fact: Text colors generated randomly."
+  },
+  "projects": {
+    "projectsTitle": "Projects",
+    "mdb": "Databae ORM package for PHP",
+    "passgen": "Password generator package for Laravel",
+    "handynum": "Number Helper package for Laravel",
+    "toast": "Toast package for JavaScript",
+    "lymedia": "Social media like instagram based on Laravel 8, Vue js V3 and MongoDB",
+    "messenger": "Real-time messenger app with Laravel, Vue js, MySQL and pusher",
+    "wisham": "An app with Laravel and Vue for listing wishes",
+    "mimfaweb": "Wordpress site",
+    "todoapp": "Todo desktop app with vue js and electron js",
+    "link": "Source",
+    "moreToast": "Toast package for javascript",
+    "farsiPoem": "Get random persian poem, PHP Package",
+    "ytCheck": "Check if a youtube video exists or not.",
+    "automation": "A simple automation app.",
+    "sfm": "Simple financial management app."
+  },
+  "education": {
+    "educationTitle": "Education",
+    "csTitle": "Computer Science, SRBIAU, Tehran",
+    "csDate": "December 2020 - present",
+    "link": "Visit here"
+  },
+  "employment": {
+    "employmentTitle": "Employment History",
+    "swdTitle": "Self Web Developer",
+    "swdDate": "January 2014 - present",
+    "swdDesc": "Work as full-stack web developer",
+    "link": "Visit here"
+  },
+  "social": {
+    "madeWith": "Made with ",
+    "and": " and ",
+    "love": " Love ",
+    "by": " by "
+  }
+}
