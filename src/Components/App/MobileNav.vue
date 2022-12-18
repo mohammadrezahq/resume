@@ -37,12 +37,6 @@
         :class="currentPath == '/@/projects' ? classesOnActive : classes"
       ></div>
       <div
-        @click="changeRoute('/@/education')"
-        @mouseover="changePathName('Education')"
-        @mouseleave="setPathName()"
-        :class="currentPath == '/@/education' ? classesOnActive : classes"
-      ></div>
-      <div
         @click="changeRoute('/@/employment-history')"
         @mouseover="changePathName('Employment History')"
         @mouseleave="setPathName()"
@@ -60,69 +54,87 @@
     <div :class="classesOnPathName">{{ pathName }}</div>
   </div>
 </template>
-<script>
-export default {
-  props: ["currentPath"],
-  data() {
-    return {
-      classes:
-        "transition w-2 h-2 shadow-md mx-2 rounded-full bg-white hover:h-4 hover:w-4 cursor-pointer",
-      classesOnActive:
-        "transition w-4 h-4 shadow-md mx-2 rounded-full bg-white",
-      classesOnPathName: "mr-1 mt-1 font-bold z-10",
-      pathName: "",
-    };
-  },
-  mounted() {
-    this.setPathName();
-  },
-  methods: {
-    setPathName() {
-      this.classesOnPathName = "mr-1 mt-1 font-bold z-10";
-      const path = this.$router.currentRoute.value.path;
-      if (path == "/@/welcome") {
-        this.pathName = this.$t("nav.welcome");
-      }
-      if (path == "/@/about") {
-        this.pathName = this.$t("nav.about");
-      }
+<script setup>
+import { onMounted, ref, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { useI18n } from "vue-i18n";
 
-      if (path == "/@/skills") {
-        this.pathName = this.$t("nav.skills");
-      }
+const { t, locale } = useI18n({ useScope: "global" });
 
-      if (path == "/@/packages") {
-        this.pathName = this.$t("nav.packages");
-      }
+defineProps(["currentPath"]);
+const router = useRouter();
+const route = useRoute();
 
-      if (path == "/@/projects") {
-        this.pathName = this.$t("nav.projects");
-      }
+const classes = ref(
+  "transition w-2 h-2 shadow-md mx-2 rounded-full bg-white hover:h-4 hover:w-4 cursor-pointer"
+);
+const classesOnActive = ref(
+  "transition w-4 h-4 shadow-md mx-2 rounded-full bg-white"
+);
 
-      if (path == "/@/education") {
-        this.pathName = this.$t("nav.education");
-      }
+const pathName = ref("");
+const classesOnPathName = ref("mr-1 mt-1 font-bold z-10");
 
-      if (path == "/@/employment-history") {
-        this.pathName = this.$t("nav.employment");
-      }
+onMounted(async () => {
+  await router.isReady();
+  setPathName();
+});
 
-      if (path == "/@/social") {
-        this.pathName = this.$t("nav.social");
-      }
-    },
-    changePathName(name) {
-      this.classesOnPathName = "mr-1 mt-1 font-bold text-gray-400 z-10";
-      this.pathName = name;
-    },
-    changeRoute(name) {
-      this.$router.push(name);
-    },
-  },
-  watch: {
-    $route(to, from) {
-      this.setPathName();
-    },
-  },
+const setPathName = () => {
+  classesOnPathName.value = "mr-1 mt-1 font-bold z-10";
+
+  const path = route.path;
+
+  if (path == "/@/welcome") {
+    pathName.value = t("nav.welcome");
+  }
+  if (path == "/@/about") {
+    pathName.value = t("nav.about");
+  }
+
+  if (path == "/@/skills") {
+    pathName.value = t("nav.skills");
+  }
+
+  if (path == "/@/packages") {
+    pathName.value = t("nav.packages");
+  }
+
+  if (path == "/@/projects") {
+    pathName.value = t("nav.projects");
+  }
+
+  if (path == "/@/education") {
+    pathName.value = t("nav.education");
+  }
+
+  if (path == "/@/employment-history") {
+    pathName.value = t("nav.employment");
+  }
+
+  if (path == "/@/social") {
+    pathName.value = t("nav.social");
+  }
 };
+const changePathName = (name) => {
+  classesOnPathName.value = "mr-1 mt-1 font-bold text-gray-400 z-10";
+  pathName.value = name;
+};
+const changeRoute = (name) => {
+  router.push(name);
+};
+
+watch(
+  () => route.path,
+  () => {
+    setPathName();
+  }
+);
+
+watch(
+  () => locale.value,
+  () => {
+    setPathName();
+  }
+);
 </script>
